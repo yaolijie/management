@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+    <listener>
+        <listener-class>com.liji.managementSystem.Listener.D2DBServertStarListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>com.liji.managementSystem.Listener.SystemManagerCreaterListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>H2Console</servlet-name>
+        <servlet-class>org.h2.server.web.WebServlet</servlet-class>
+        <init-param>
+            <param-name>webAllowOthers</param-name>
+            <param-value></param-value>
+        </init-param>
+        <init-param>
+            <param-name>trace</param-name>
+            <param-value></param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>H2Console</servlet-name>
+        <url-pattern>/console/*</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>LendFilter</filter-name>
+        <filter-class>com.liji.managementSystem.filter.LengFilter</filter-class>
+        <init-param>
+            <param-name>needCheckUrl</param-name>
+            <param-value>/*</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>LendFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>LendServlet</servlet-name>
+        <servlet-class>com.liji.managementSystem.Servlet.LandServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LendServlet</servlet-name>
+        <url-pattern>/LendServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <description>注册H2数据库的扩展函数</description>
+        <servlet-name>RegisterH2DBExtFunction</servlet-name>
+        <servlet-class>com.liji.managementSystem.h2.RegisterH2ExtFuncServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+
+</web-app>
