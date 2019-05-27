@@ -46,21 +46,38 @@
 
     <servlet>
         <servlet-name>LendServlet</servlet-name>
-        <servlet-class>com.liji.managementSystem.Servlet.LandServlet</servlet-class>
+        <servlet-class>com.liji.managementSystem.Servlet.LendServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LendServlet</servlet-name>
         <url-pattern>/LendServlet</url-pattern>
     </servlet-mapping>
-
-
+    
     <servlet>
         <description>注册H2数据库的扩展函数</description>
         <servlet-name>RegisterH2DBExtFunction</servlet-name>
         <servlet-class>com.liji.managementSystem.h2.RegisterH2ExtFuncServlet</servlet-class>
-        <load-on-startup>2</load-on-startup>
+        <!--<load-on-startup>2</load-on-startup>-->
     </servlet>
 
+    <servlet>
+        <servlet-name>LoadServlet</servlet-name>
+        <servlet-class>com.liji.managementSystem.Servlet.LoadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoadServlet</servlet-name>
+        <url-pattern>/LoadServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>InsertServlet</servlet-name>
+        <servlet-class>com.liji.managementSystem.Servlet.InsertServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertServlet</servlet-name>
+        <url-pattern>/InsertServlet</url-pattern>
+    </servlet-mapping>
+    
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

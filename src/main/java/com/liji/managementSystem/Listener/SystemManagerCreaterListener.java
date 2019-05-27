@@ -1,6 +1,7 @@
 package com.liji.managementSystem.Listener;
 
 import com.liji.managementSystem.model.User;
+import com.liji.managementSystem.model.UserAccount;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -15,10 +16,10 @@ public class SystemManagerCreaterListener implements ServletContextListener {
 
         //查询系统默认账号是否存在，如果不存在，创建一个默认账号
 
-        User user=new User();
+        UserAccount user=new UserAccount();
         if (user==null){
-            user.setName("admin");
-            user.setPassworld("1");
+            user.setUserName("admin");
+            user.setPassWorld("1");
 
             //设置为管理员用户
 

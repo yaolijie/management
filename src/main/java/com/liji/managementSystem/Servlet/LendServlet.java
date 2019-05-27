@@ -1,6 +1,7 @@
 package com.liji.managementSystem.Servlet;
 
 import com.liji.managementSystem.model.User;
+import com.liji.managementSystem.model.UserAccount;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -13,7 +14,7 @@ import java.io.PrintWriter;
 import java.net.URLDecoder;
 import java.sql.*;
 
-public class LandServlet extends HttpServlet {
+public class LendServlet extends HttpServlet {
 
 
     PreparedStatement statement=null;
@@ -32,15 +33,15 @@ public class LandServlet extends HttpServlet {
 
         String name=request.getParameter("user");
         String pwd=request.getParameter("pwd");
-        User user=new User();
+        UserAccount user=new UserAccount();
         try {
             statement=connection.prepareStatement("select t.name,t.passworld from tab_user t where t.name= ?");
             statement.setString(1,name);
             ResultSet set=statement.executeQuery();
             if (set.next()){
 
-                user.setName(set.getString("name"));
-                user.setPassworld(set.getString("passworld"));
+                user.setUserName(set.getString("name"));
+                user.setPassWorld(set.getString("passworld"));
                 if (pwd.equals(set.getString("passworld"))){
                     //登陆成功
                     request.getSession().setAttribute("USER_IN_SESSION",user);

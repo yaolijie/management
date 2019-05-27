@@ -29,16 +29,16 @@ public class H2DBFunctionExt {
     }
 
     public static String date_format(String date,String pattern){
+        SimpleDateFormat sdf=new SimpleDateFormat(pattern);
+        Date temp=null;
         if(date!=null){
-            SimpleDateFormat sdf=new SimpleDateFormat(pattern);
             try{
-                Date temp=sdf.parse(date);
-                return sdf.format(temp);
+                temp=sdf.parse(date);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         }
-        return "";
+        return sdf.format(temp);
     }
 
 

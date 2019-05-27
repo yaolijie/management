@@ -1,0 +1,45 @@
+--用户表
+```
+create table user(
+   uuid varchar(64) primary key not null,
+   user_id varchar(64) not null,
+   user_name varchar(32) null,
+   userID varchar(18) null,
+   dept_id varchar(64),
+   dept_name varchar(64),
+   age varchar(2),
+   sex varchar(2),
+   school varchar(20),
+   edu varchar(34),
+  create_time date,
+  create_uuid varchar(64),
+  create_name varchar(32)
+  )
+```
+--用户权限表
+```
+create table user_account(
+   uuid varchar(64) primary key not null,
+   user_id varchar(64) not null,
+   user_name varchar(32) null,
+   passworld varchar(12) not null,
+  create_time date,
+  create_uuid varchar(64),
+  create_name varchar(32),
+  type varchar(4)
+  )
+```
+--机构
+```sql
+create table organ(
+   uuid varchar(64) primary key not null,
+   organ_id varchar(64) not null,
+   organ_name varchar(32) null,
+   code varchar(32) ,
+  s_organ_id varchar(64),
+  create_time date,
+  create_uuid varchar(64),
+  create_name varchar(32),
+  type varchar(4)
+  )
+```
