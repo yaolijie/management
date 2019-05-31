@@ -15,7 +15,7 @@ public class InsertHeadler {
     public static Boolean insertOrgan(User user, UserAccount account) {
 
         boolean result=false;
-        String insetUser="insert into user values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String insetUser="insert into user values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         Connection connection=null;
         Statement statement=null;
         PreparedStatement preparedStatement=null;
@@ -40,7 +40,20 @@ public class InsertHeadler {
                     "')";
             statement.execute(inserAccount);
             preparedStatement=connection.prepareStatement(insetUser);
-
+            preparedStatement.setString(1,user.getUuid());
+            preparedStatement.setString(2,user.getUser_id());
+            preparedStatement.setString(3,user.getNameFull());
+            preparedStatement.setString(4,user.getName());
+            preparedStatement.setString(5,user.getUseriId());
+            preparedStatement.setString(6,user.getDeptId());
+            preparedStatement.setString(7,user.getDeptName());
+            preparedStatement.setString(8,user.getAge());
+            preparedStatement.setString(9,user.getSex());
+            preparedStatement.setString(10,user.getSchool());
+            preparedStatement.setString(11,user.getEdu());
+            preparedStatement.setString(12,user.getCreateTime());
+            preparedStatement.setString(13,user.getCreateUuid());
+            preparedStatement.setString(14,user.getCreateName());
             connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -48,6 +61,7 @@ public class InsertHeadler {
             try{
                 if (statement!=null)
                     statement.close();
+                    preparedStatement.close();
                 if (connection!=null){
                     connection.close();
                 }
